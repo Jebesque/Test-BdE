@@ -14,6 +14,8 @@ Web-app estática para preparar el proceso de **Técnico/a Generalista del Banco
 
 - Separación entre **Examen de conocimientos 2026**, **Apoyo BdE** y **Test normal / capacidades**.
 - Modo práctica con feedback y modo simulacro sin feedback.
+- Explicación breve en cada pregunta al contestar, tanto si aciertas como si fallas.
+- Explicaciones visibles también en **Banco** y en **Registro de fallos**.
 - Penalización configurable de **-0,33** por error.
 - Priorización de preguntas no vistas recientemente.
 - Registro automático de fallos.
@@ -22,7 +24,7 @@ Web-app estática para preparar el proceso de **Técnico/a Generalista del Banco
 - Marcar preguntas como dominadas.
 - Panel de estadísticas, racha, meta diaria y temas débiles.
 - Exportación/importación de progreso en JSON.
-- Exportación de fallos en CSV.
+- Exportación de fallos en CSV, incluyendo explicación de cada fallo.
 - Importación de nuevas preguntas en JSON.
 - Instalable en móvil/ordenador como PWA.
 
@@ -30,9 +32,10 @@ Web-app estática para preparar el proceso de **Técnico/a Generalista del Banco
 
 1. Empieza por **Examen de conocimientos 2026**.
 2. Haz bloques de 20 preguntas con feedback.
-3. Revisa **Fallos** después de cada test.
-4. Usa **Apoyo BdE** para ampliar cultura financiera/BdE sin mezclarlo con el temario principal.
-5. Exporta progreso si vas a cambiar de ordenador o móvil.
+3. Lee la explicación después de cada respuesta, incluso cuando aciertes.
+4. Revisa **Fallos** después de cada test.
+5. Usa **Apoyo BdE** para ampliar cultura financiera/BdE sin mezclarlo con el temario principal.
+6. Exporta progreso si vas a cambiar de ordenador o móvil.
 
 ## Activar GitHub Pages
 
@@ -67,7 +70,7 @@ Desde la pestaña **Ajustes** puedes pegar un JSON con este formato:
       {"key": "D", "text": "Opción D"}
     ],
     "answer": "A",
-    "explanation": "Explicación opcional"
+    "explanation": "Explicación opcional. Si no se incluye, la app genera una explicación contextual."
   }
 ]
 ```
