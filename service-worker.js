@@ -1,4 +1,4 @@
-const CACHE='bde-test-lab-v8';
+const CACHE='bde-test-lab-v9';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./data/q1.js','./data/q2.js','./data/q3.js','./data/q4.js','./data/drive-original.js','./data/questions.js','./manifest.webmanifest','./icons/icon.svg'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
