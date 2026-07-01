@@ -8,5 +8,8 @@ window.BDE_QUESTIONS_READY=(async()=>{
   }
   const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
   const text=await new Response(stream).text();
-  window.BDE_QUESTIONS=JSON.parse(text);
+  const base=JSON.parse(text);
+  const extra=Array.isArray(window.BDE_EXTRA_QUESTIONS)?window.BDE_EXTRA_QUESTIONS:[];
+  const seen=new Set(base.map(q=>q.id));
+  window.BDE_QUESTIONS=[...base,...extra.filter(q=>q&&q.id&&!seen.has(q.id))];
 })();
