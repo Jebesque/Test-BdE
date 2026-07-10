@@ -4,38 +4,42 @@ Web-app estática para preparar el proceso de **Técnico/a Generalista del Banco
 
 ## Banco incluido
 
-- **92 preguntas oficiales de conocimientos 2026** relacionadas directamente con macroeconomía, microeconomía y estadística/econometría.
-- **69 preguntas oficiales de apoyo BdE**: sistema financiero, mercados e instituciones financieras y matemáticas financieras.
-- **19 preguntas propias de capacidades**: razonamiento numérico, lógico y verbal.
+El banco conserva las preguntas base, las preguntas oficiales y el material original importado del Drive, y añade un bloque final de **120 preguntas de repaso auditadas**:
 
-**Total: 180 preguntas cargadas.**
+- 30 de Macroeconomía.
+- 30 de Microeconomía.
+- 30 de Estadística.
+- 30 de Econometría.
+
+Se han retirado de la carga activa los antiguos bancos automáticos de 200 y 400 preguntas porque generaban variantes repetitivas, distractores demasiado débiles y un patrón frecuente en el que la respuesta correcta era la más larga.
+
+Al iniciar la aplicación, `data/question-audit-2026.js` realiza además una depuración automática: elimina duplicados exactos, conjuntos de opciones repetidos y preguntas antiguas con un sesgo de longitud muy acusado. El resultado se expone en la consola como `window.BDE_AUDIT_REPORT`.
 
 ## Qué incluye
 
 - Separación entre **Examen de conocimientos 2026**, **Apoyo BdE** y **Test normal / capacidades**.
 - Modo práctica con feedback y modo simulacro sin feedback.
 - Explicación breve en cada pregunta al contestar, tanto si aciertas como si fallas.
-- Explicaciones visibles también en **Banco** y en **Registro de fallos**.
+- Preguntas de cálculo, interpretación y aplicación, no solo definiciones.
+- Opciones barajadas en cada test.
+- Selección que evita repetir el mismo tema dentro del test cuando hay alternativas.
 - Penalización configurable de **-0,33** por error.
 - Priorización de preguntas no vistas recientemente.
-- Registro automático de fallos.
-- Repaso específico de fallos.
-- Notas personales por pregunta.
-- Marcar preguntas como dominadas.
+- Registro automático de fallos y repaso específico.
+- Notas personales por pregunta y marcado de preguntas dominadas.
 - Panel de estadísticas, racha, meta diaria y temas débiles.
 - Exportación/importación de progreso en JSON.
 - Exportación de fallos en CSV, incluyendo explicación de cada fallo.
 - Importación de nuevas preguntas en JSON.
 - Instalable en móvil/ordenador como PWA.
 
-## Uso recomendado
+## Uso recomendado antes del examen
 
-1. Empieza por **Examen de conocimientos 2026**.
-2. Haz bloques de 20 preguntas con feedback.
-3. Lee la explicación después de cada respuesta, incluso cuando aciertes.
-4. Revisa **Fallos** después de cada test.
-5. Usa **Apoyo BdE** para ampliar cultura financiera/BdE sin mezclarlo con el temario principal.
-6. Exporta progreso si vas a cambiar de ordenador o móvil.
+1. Haz un test de 20 preguntas de cada bloque: Macro, Micro, Estadística y Econometría.
+2. Usa primero el modo práctica y lee las explicaciones.
+3. Entra en **Fallos** y repasa únicamente los errores.
+4. Termina con un simulacro mixto sin feedback.
+5. No estudies la letra correcta: las opciones se barajan y la distribución de respuestas del bloque final está equilibrada.
 
 ## Activar GitHub Pages
 
@@ -70,11 +74,11 @@ Desde la pestaña **Ajustes** puedes pegar un JSON con este formato:
       {"key": "D", "text": "Opción D"}
     ],
     "answer": "A",
-    "explanation": "Explicación opcional. Si no se incluye, la app genera una explicación contextual."
+    "explanation": "Explicación opcional."
   }
 ]
 ```
 
 ## Aviso
 
-El progreso se guarda en el navegador mediante `localStorage`. Antes de cambiar de dispositivo, usa **Exportar progreso**.
+El progreso se guarda en el navegador mediante `localStorage`. Antes de cambiar de dispositivo, usa **Exportar progreso**. Tras una actualización importante, recarga la página para que el service worker descargue la nueva versión.
