@@ -1,5 +1,5 @@
-const CACHE='bde-test-lab-v10';
-const ASSETS=['./','./index.html','./styles.css','./app.js','./data/q1.js','./data/q2.js','./data/q3.js','./data/q4.js','./data/drive-original.js','./data/bde-extra-200.js','./data/questions.js','./manifest.webmanifest','./icons/icon.svg'];
+const CACHE='bde-test-lab-v11-final-audit';
+const ASSETS=['./','./index.html','./styles.css','./app.js','./data/q1.js','./data/q2.js','./data/q3.js','./data/q4.js','./data/drive-original.js','./data/final-macro-2026.js','./data/final-micro-2026.js','./data/final-estadistica-2026.js','./data/final-econometria-2026.js','./data/questions.js','./data/question-audit-2026.js','./data/no-repeat-same-test.js','./manifest.webmanifest','./icons/icon.svg'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
 self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request)));});
